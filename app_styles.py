@@ -348,6 +348,62 @@ QPushButton#btnReset:hover {
 QPushButton#btnReset:pressed {
     background-color: #e8d4d2;
 }
+
+/* ===========================================================================
+   新增：文件管理与笔记页特定样式 (对齐清新绿主题)
+   =========================================================================== */
+
+/* 文件管理页大标题 - 对齐 heroTitle 风格 */
+QLabel#organizerTitle {
+    color: #1e2d28;
+    font-size: 26px;
+    font-weight: 800;
+    letter-spacing: 0.3px;
+    padding: 10px 0;
+}
+
+/* 通用列表控件 (用于日志展示和笔记列表) */
+QListWidget {
+    background-color: #ffffff;
+    border: 1px solid #d4e4da;
+    border-radius: 20px;
+    padding: 10px;
+    color: #1e2d28;
+    font-size: 14px;
+}
+
+QListWidget::item {
+    background-color: #f4f9f6;
+    border-radius: 12px;
+    margin-bottom: 8px;
+    padding: 12px 15px;
+    color: #2d3d36;
+}
+
+QListWidget::item:hover {
+    background-color: #d2e2d8;
+}
+
+QListWidget::item:selected {
+    background-color: #5b8a7a;
+    color: #ffffff;
+}
+
+/* 笔记编辑区域 */
+QTextEdit#noteEditor {
+    background-color: #ffffff;
+    border: 1px solid #d4e4da;
+    border-radius: 20px;
+    padding: 15px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #1e2d28;
+}
+
+QTextEdit#noteEditor:focus {
+    border: 2px solid #5b8a7a;
+}
+
 """
 
 # ---------------------------------------------------------------------------
@@ -368,7 +424,22 @@ QWidget#reviewCard {
     border-radius: 22px;
 }
 """
-
+# --- 在这里插入 DANGER_BUTTON ---
+DANGER_BUTTON = """
+QPushButton {
+    background-color: #e57373; 
+    color: white;
+    border-radius: 10px;
+    padding: 8px 15px;
+    font-weight: bold;
+}
+QPushButton:hover {
+    background-color: #ef5350;
+}
+QPushButton:pressed {
+    background-color: #c62828;
+}
+"""
 
 def build_tab_bar_qss(tab_height_px: int, tab_font_pt: int) -> str:
     """随窗口缩放的标签栏样式（仍保持清新绿主题）。"""
@@ -434,6 +505,7 @@ QLabel#BigTitle {
     color: #333;
 }
 """
+
 
 # ==========================================================
 # 第三部分：最终合并 (这是 main.py 会调用的变量)
